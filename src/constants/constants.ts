@@ -1,0 +1,1 @@
+export const API_BASE_URL = "https://pdf-generator-u4n8.onrender.com"
