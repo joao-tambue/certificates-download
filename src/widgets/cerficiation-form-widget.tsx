@@ -71,7 +71,7 @@ export function CertificationFormWidget() {
     setMessage({
       status: "SUCCESS",
       message:
-        "Enviamos o teu certificado para o email, por favor acesse ao teu inbox e faça o download do mesmo",
+        "Enviamos o teu certificado para o seu email, por favor acesse ao teu inbox e faça o download do mesmo",
     });
 
     reset();
