@@ -4,7 +4,6 @@ import { Download } from "lucide-react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { API_BASE_URL } from "../constants/constants";
 import { WarningMessage } from "../components/warning-message";
 import { SuccessMessage } from "../components/success-message";
 
@@ -21,17 +20,15 @@ const downloadCertificationSchema = z.object({
 type CertificationForm = z.infer<typeof downloadCertificationSchema>;
 
 export function CertificationFormWidget() {
-  const [message, setMessage] = useState<Message>({
+  const [message] = useState<Message>({
     status: "",
     message: "",
   });
-  const [isDownloading, setIsDownloading] = useState(false);
+  const [isDownloading] = useState(false);
 
   const {
     watch,
-    reset,
     setValue,
-    handleSubmit,
     formState: { errors },
   } = useForm<CertificationForm>({
     resolver: zodResolver(downloadCertificationSchema),
@@ -40,43 +37,6 @@ export function CertificationFormWidget() {
       email: "",
     },
   });
-
-  const handleDownload = async (data: CertificationForm) => {
-    setIsDownloading(true);
-
-    const response = await fetch(`${API_BASE_URL}/request/certificate`, {
-      method: "POST",
-      body: JSON.stringify({
-        name: data.name,
-        email: data.email,
-      }),
-      headers: {
-        "content-type": "application/json",
-      },
-    });
-
-    if (!response.ok) {
-      if ([400, 404].includes(response.status)) {
-        setMessage({
-          status: "WARNING",
-          message:
-            "Participante não encontrado, se não efectuou nenhum voto durante a actividade infelizmente o certificado não vai ser gerado",
-        });
-      }
-
-      setIsDownloading(false);
-      return;
-    }
-
-    setMessage({
-      status: "SUCCESS",
-      message:
-        "Enviamos o teu certificado para o seu email, por favor acesse ao teu inbox e faça o download do mesmo",
-    });
-
-    reset();
-    setIsDownloading(false);
-  };
 
   return (
     <>
@@ -87,7 +47,7 @@ export function CertificationFormWidget() {
         <SuccessMessage message={message.message} />
       )}
 
-      <form className="space-y-4" onSubmit={handleSubmit(handleDownload)}>
+      <form className="space-y-4">
         <div className="flex flex-col items-start">
           <label
             htmlFor="name"
