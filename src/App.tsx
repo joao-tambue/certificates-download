@@ -2,7 +2,7 @@ import { Footer } from "./components/layout/footer";
 import { Award, CheckCircle, FileText } from "lucide-react";
 import { ActivityDetails } from "./components/layout/activity-details";
 import { EventInformation } from "./components/layout/event-information";
-import { CertificationFormWidget } from "./widgets/cerficiation-form-widget";
+import { CertificationFormWidget } from "./components/widgets/cerficiation-form-widget";
 
 function App() {
   return (
