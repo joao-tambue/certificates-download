@@ -21,7 +21,7 @@ function App() {
                   Colégio Árvore da Felicidade
                 </h1>
                 <p className="text-emerald-600 text-sm">
-                  Certificados de Participação
+                  Obtenha a sua certificação digital.
                 </p>
               </div>
             </div>

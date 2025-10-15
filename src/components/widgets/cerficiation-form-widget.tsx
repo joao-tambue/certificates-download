@@ -26,7 +26,7 @@ export function CertificationFormWidget() {
           <CertificateOptionCard title="Melhor Stand" color="bg-orange-500 hover:bg-orange-600" onClick={() => setActiveCard("stand")} />
         </div>
       ) : (
-        <div className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-md mx-auto transition-all duration-300">
+        <div className="py-6 w-full max-w-[500px] mx-auto transition-all duration-300">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-xl font-bold text-gray-900">{titles[activeCard]}</h3>
             <button onClick={closeCard} className="text-gray-400 hover:text-gray-600 transition-colors">

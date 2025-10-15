@@ -108,7 +108,7 @@ export function CertificadoSimplesForm({ onClose, type }: Props) {
         ) : (
           <>
             <Download className="h-5 w-5" />
-            <span>Baixar Certificado de {getTitle}</span>
+            <span>Emitir Certificado</span>
           </>
         )}
       </button>

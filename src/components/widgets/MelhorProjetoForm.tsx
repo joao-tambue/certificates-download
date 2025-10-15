@@ -45,7 +45,7 @@ export function MelhorProjetoForm({ onClose }: { onClose: () => void }) {
       {[
         { id: "name", label: "Nome Completo", type: "text", placeholder: "Digite seu nome completo" },
         { id: "email", label: "Email", type: "email", placeholder: "Digite seu email" },
-        { id: "class", label: "Classe", type: "text", placeholder: "Ex: 12ª Classe" },
+        { id: "class", label: "Classe", type: "text", placeholder: "Ex: 12ª" },
       ].map(field => (
         <div key={field.id} className="flex flex-col items-start">
           <label htmlFor={field.id} className="block text-sm font-medium text-gray-700 mb-2">{field.label}</label>
@@ -88,7 +88,7 @@ export function MelhorProjetoForm({ onClose }: { onClose: () => void }) {
         ) : (
           <>
             <Download className="h-5 w-5" />
-            <span>Baixar Certificado</span>
+            <span>Emitir Certificado</span>
           </>
         )}
       </button>
