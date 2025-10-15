@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://certificate-tx4s.onrender.com",
+  baseURL: "https://b684ed1a5147.ngrok-free.app",
 });
