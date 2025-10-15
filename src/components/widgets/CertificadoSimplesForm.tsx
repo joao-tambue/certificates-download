@@ -55,8 +55,12 @@ export function CertificadoSimplesForm({ onClose, type }: Props) {
       console.log("Resposta da API:", response.data);
       alert(`Certificado de ${getTitle} gerado com sucesso!`);
       onClose();
-    } catch (error: any) {
-      console.error("Erro ao enviar dados:", error);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error("Erro ao enviar dados:", error.message);
+      } else {
+        console.error("Erro desconhecido:", error);
+      }
       alert("Erro ao gerar o certificado. Tente novamente.");
     } finally {
       setIsDownloading(false);
