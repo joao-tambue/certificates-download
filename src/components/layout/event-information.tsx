@@ -44,7 +44,8 @@ export function EventInformation() {
               <MapPin className="h-8 w-8 text-emerald-600" />
             </div>
             <h4 className="text-lg font-semibold text-gray-900 mb-2">Local</h4>
-            <p className="text-gray-600">Colégio Árvore da Felicidade</p>
+            <p className="text-gray-600">Colégio Árvore da Felicidade/</p>
+            <p className="text-gray-600">Mediateca ZeDu</p>
           </div>
 
           <div className="text-center group">

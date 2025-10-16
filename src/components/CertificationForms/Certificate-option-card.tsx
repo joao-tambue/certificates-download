@@ -15,7 +15,7 @@ export function CertificateOptionCard({ title, color, onClick }: Props) {
       <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
         <Download className="h-6 w-6" />
       </div>
-      <span className="font-semibold text-lg">{title}</span>
+      <span className="font-semibold text-[16px]">{title}</span>
     </button>
   );
 }

@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Download } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { melhorProjetoSchema } from "./schemas";
-import type { MelhorProjetoForm } from "./schemas";
-import { api } from "../../services/api";
+import { melhorProjetoSchema } from "../schemas";
+import type { MelhorProjetoForm } from "../schemas";
+import { api } from "../../../services/api";
 
 export function MelhorProjetoForm({ onClose }: { onClose: () => void }) {
   const [isDownloading, setIsDownloading] = useState(false);
@@ -43,7 +43,7 @@ export function MelhorProjetoForm({ onClose }: { onClose: () => void }) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       {[
-        { id: "name", label: "Nome Completo", type: "text", placeholder: "Digite seu nome completo" },
+        { id: "name", label: "Nome do projeto", type: "text", placeholder: "Digite O nome do projeto" },
         { id: "email", label: "Email", type: "email", placeholder: "Digite seu email" },
         { id: "class", label: "Classe", type: "text", placeholder: "Ex: 12ª" },
       ].map(field => (

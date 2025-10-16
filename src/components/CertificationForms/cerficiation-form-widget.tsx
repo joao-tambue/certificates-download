@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { X } from "lucide-react";
-import { CertificateOptionCard } from "./CertificateOptionCard";
-import { MelhorProjetoForm } from "./MelhorProjetoForm";
-import { CertificadoSimplesForm } from "./CertificadoSimplesForm";
+import { CertificateOptionCard } from "./Certificate-option-card";
+import { MelhorProjetoForm } from "./forms/Melhor-projeto-form";
+import { MelhorExpositorForm } from "./forms/melhor-expositor-form";
+import { ParticipanteForm } from "./forms/Participante-form";
+import { MelhorStandForm } from "./forms/Melhor-stand-form";
 
 export function CertificationFormWidget() {
-  const [activeCard, setActiveCard] = useState<"projeto" | "expositor" | "participante" | "stand" | null>(null);
+  const [activeCard, setActiveCard] = useState<
+    "projeto" | "expositor" | "participante" | "stand" | null
+  >(null);
 
   const closeCard = () => setActiveCard(null);
 
@@ -35,9 +39,9 @@ export function CertificationFormWidget() {
           </div>
 
           {activeCard === "projeto" && <MelhorProjetoForm onClose={closeCard} />}
-          {["expositor", "participante", "stand"].includes(activeCard) && (
-            <CertificadoSimplesForm type={activeCard as "expositor" | "participante" | "stand"} onClose={closeCard} />
-          )}
+          {activeCard === "expositor" && <MelhorExpositorForm onClose={closeCard} />}
+          {activeCard === "participante" && <ParticipanteForm onClose={closeCard} />}
+          {activeCard === "stand" && <MelhorStandForm onClose={closeCard} />}
         </div>
       )}
     </div>
